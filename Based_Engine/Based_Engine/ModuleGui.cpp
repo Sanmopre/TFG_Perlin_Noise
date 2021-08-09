@@ -87,7 +87,7 @@ update_status ModuleGui::Update(float dt)
 
 	ImGuiID id = 1;
 	//Main window
-	if (ImGui::Begin("BASED Engine"))
+	if (ImGui::Begin("Perlin Noise Generator"))
 	{
 		if (ImGui::CollapsingHeader("Application"))
 		{

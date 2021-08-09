@@ -64,6 +64,9 @@
     <ClCompile Include="External\ImGui\misc\cpp\imgui_stdlib.cpp">
       <Filter>Engine\ImGui\misc\cpp</Filter>
     </ClCompile>
+    <ClCompile Include="Grid.cpp">
+      <Filter>Engine\Tools</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -134,6 +137,9 @@
     </ClInclude>
     <ClInclude Include="External\ImGui\misc\cpp\imgui_stdlib.h">
       <Filter>Engine\ImGui\misc\cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid.h">
+      <Filter>Engine\Tools</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

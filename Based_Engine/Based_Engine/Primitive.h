@@ -2,6 +2,7 @@
 #pragma once
 #include "glmath.h"
 #include "Color.h"
+#include "Grid.h"
 
 enum PrimitiveTypes
 {
@@ -92,4 +93,5 @@ public:
 public:
 	vec3 normal;
 	float constant;
+	Grid epic;
 };

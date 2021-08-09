@@ -31,4 +31,5 @@ enum update_status
 #define WIN_BORDERLESS false
 #define WIN_FULLSCREEN_DESKTOP false
 #define VSYNC true
-#define TITLE "BASED Engine"
+#define TITLE "Perlin Noise Generator by Santiago Moliner"
+#define SIZE_OF_GRID 30
