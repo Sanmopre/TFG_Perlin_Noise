@@ -272,12 +272,12 @@ void Plane::InnerRender() const
 	}
 
 	glEnd();
-
+	
 	glBegin(GL_QUADS);
 
-	for (int s = 0; s <= SIZE_OF_GRID - 2; s++)
+	for (int s = 0; s < SIZE_OF_GRID - 1; s++)
 	{
-		for (int k = 0; k <= SIZE_OF_GRID - 2; k++)
+		for (int k = 0; k < SIZE_OF_GRID - 1; k++)
 		{
 			glVertex3f(s, epic.grid[s][k], k);
 			glVertex3f(s, epic.grid[s][k + 1], k + 1);
@@ -286,4 +286,6 @@ void Plane::InnerRender() const
 		}
 	}
 	glEnd();
+
+
 }
