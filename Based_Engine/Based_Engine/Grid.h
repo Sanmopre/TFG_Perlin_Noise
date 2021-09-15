@@ -8,15 +8,20 @@ class Grid
 public:
 
 	Grid();
-
+public:
 	void SetGridRandomHeight();
 
 	float grid[SIZE_OF_GRID][SIZE_OF_GRID];
 
-private:
+
 	double ioffset = 0;
 	double koffset = 0;
-	float maxHeight = 4;
+	double noiseSize = 0.01;
+	int multiplierFactor = 4;
+
+
+private:
+
 };
 
 #endif //__GRID_H__

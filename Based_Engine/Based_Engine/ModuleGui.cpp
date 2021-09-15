@@ -7,7 +7,9 @@
 #include "misc/cpp/imgui_stdlib.h" //ENABLE THE INPUT TEXT FUNCTIONS WITH STD::STRING
 #include "ModuleWindow.h"
 #include "ModuleRenderer3D.h"
-//#include "Module"
+#include "Grid.h"
+#include "Primitive.h"
+#include "ModuleSceneIntro.h"
 #include <string> 
 
 ModuleGui::ModuleGui(Application* app, bool start_enabled) : Module(app, start_enabled)
@@ -27,7 +29,7 @@ bool ModuleGui::Start()
 	ImGuiIO& io = ImGui::GetIO(); (void)io;
 	//ImGui::StyleColorsClassic();
 	//ImGui::StyleColorsDark();
-	//ImGui::StyleColorsLight();
+	ImGui::StyleColorsLight();
 
 
 	ImGui_ImplSDL2_InitForOpenGL(App->window->window, App->window->gl_context);
@@ -54,15 +56,14 @@ update_status ModuleGui::Update(float dt)
 	//TOP BAR MENU
 	ImGui::BeginMainMenuBar();
 
-	if (ImGui::BeginMenu("Files")){
+	if (ImGui::BeginMenu("Perlin Noise Values")){
+
+		ImGui::InputDouble("Height", &App->scene_intro->grid->epic->ioffset, 1, 20 );
 		ImGui::EndMenu();
 	}
 
 	if (ImGui::BeginMenu("Help")) 
 	{
-		if (ImGui::MenuItem("Show ImGui demo"))
-			showcase = !showcase;
-	
 		if (ImGui::MenuItem("Documentation")) 
 		ShellExecute(NULL, "open", "www.google.com", NULL, NULL, SW_SHOWNORMAL);
 
@@ -72,7 +73,7 @@ update_status ModuleGui::Update(float dt)
 		if (ImGui::MenuItem("Report a bug")) 
 		ShellExecute(NULL, "open", "www.google.com", NULL, NULL, SW_SHOWNORMAL);
 
-		if (ImGui::MenuItem("About"))
+		if (ImGui::MenuItem("About me"))
 		ShellExecute(NULL, "open", "www.google.com", NULL, NULL, SW_SHOWNORMAL);
 
 		ImGui::ShowStyleSelector("Style selector");
@@ -86,6 +87,7 @@ update_status ModuleGui::Update(float dt)
 
 	ImGui::EndMainMenuBar();
 
+	/*
 	ImGuiID id = 1;
 	//Main window
 	if (ImGui::Begin("Perlin Noise Generator"))
@@ -148,7 +150,7 @@ update_status ModuleGui::Update(float dt)
 		if (!show_demo_window)
 			showcase = false;
 	}
-		
+		*/
 	//UI rendering	
 	ImGui::EndFrame();
 	ImGui::Render();

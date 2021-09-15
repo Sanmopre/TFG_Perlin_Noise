@@ -103,8 +103,9 @@ public:
 	GridRender();
 	GridRender(float x, float y, float z, float d);
 	void InnerRender() const;
+	Grid* epic;
 public:
 	vec3 normal;
 	float constant;
-	Grid epic;
+
 };

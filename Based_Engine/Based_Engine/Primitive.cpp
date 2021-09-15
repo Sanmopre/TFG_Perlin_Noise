@@ -3,6 +3,7 @@
 #include <gl/GL.h>
 #include <gl/GLU.h>
 #include "Primitive.h"
+#include "Grid.h"
 #include "glut.h"
 
 // ------------------------------------------------------------
@@ -277,11 +278,13 @@ void Plane::InnerRender() const
 GridRender::GridRender() : Primitive(), normal(0, 1, 0), constant(1)
 {
 	type = PrimitiveTypes::Primitive_Plane;
+	epic = new Grid();
 }
 
 GridRender::GridRender(float x, float y, float z, float d) : Primitive(), normal(x, y, z), constant(d)
 {
 	type = PrimitiveTypes::Primitive_Plane;
+	epic = new Grid();
 }
 
 void GridRender::InnerRender() const
@@ -294,10 +297,10 @@ void GridRender::InnerRender() const
 	{
 		for (int k = 0; k < SIZE_OF_GRID - 1; k++)
 		{
-			glVertex3f(s, epic.grid[s][k], k);
-			glVertex3f(s, epic.grid[s][k + 1], k + 1);
-			glVertex3f(s + 1, epic.grid[s + 1][k + 1], k + 1);
-			glVertex3f(s + 1, epic.grid[s + 1][k], k);
+			glVertex3f(s, epic->grid[s][k], k);
+			glVertex3f(s, epic->grid[s][k + 1], k + 1);
+			glVertex3f(s + 1, epic->grid[s + 1][k + 1], k + 1);
+			glVertex3f(s + 1, epic->grid[s + 1][k], k);
 		}
 	}
 	glEnd();
