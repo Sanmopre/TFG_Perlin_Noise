@@ -14,7 +14,8 @@ public:
 	float grid[SIZE_OF_GRID][SIZE_OF_GRID];
 
 private:
-
+	double ioffset = 0;
+	double koffset = 0;
 	float maxHeight = 4;
 };
 

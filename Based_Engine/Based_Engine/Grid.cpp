@@ -16,10 +16,11 @@ void Grid::SetGridRandomHeight()
 		for(int k = 0; k < SIZE_OF_GRID; k++)
 		{
 			float n;
-			n = 20 * perlin->noise(i, k, 0.8);
-			n = n - floor(n);
+			n = 20 * perlin->noise(ioffset, koffset,0);
 			grid[i][k] = n;
+			koffset += 0.1;
 		}
+		ioffset += 0.1;
 	}
 
 }

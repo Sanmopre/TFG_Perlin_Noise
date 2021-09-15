@@ -95,3 +95,16 @@ public:
 	float constant;
 	Grid epic;
 };
+
+// ============================================
+class GridRender : public Primitive
+{
+public:
+	GridRender();
+	GridRender(float x, float y, float z, float d);
+	void InnerRender() const;
+public:
+	vec3 normal;
+	float constant;
+	Grid epic;
+};

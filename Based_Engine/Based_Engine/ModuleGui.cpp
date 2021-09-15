@@ -7,6 +7,7 @@
 #include "misc/cpp/imgui_stdlib.h" //ENABLE THE INPUT TEXT FUNCTIONS WITH STD::STRING
 #include "ModuleWindow.h"
 #include "ModuleRenderer3D.h"
+//#include "Module"
 #include <string> 
 
 ModuleGui::ModuleGui(Application* app, bool start_enabled) : Module(app, start_enabled)

@@ -258,7 +258,7 @@ Plane::Plane(float x, float y, float z, float d) : Primitive(), normal(x, y, z),
 void Plane::InnerRender() const
 {
 	glLineWidth(1.0f);
-
+	
 	glBegin(GL_LINES);
 
 	float d = 200.0f;
@@ -272,9 +272,24 @@ void Plane::InnerRender() const
 	}
 
 	glEnd();
-	
-	glBegin(GL_QUADS);
+}
 
+GridRender::GridRender() : Primitive(), normal(0, 1, 0), constant(1)
+{
+	type = PrimitiveTypes::Primitive_Plane;
+}
+
+GridRender::GridRender(float x, float y, float z, float d) : Primitive(), normal(x, y, z), constant(d)
+{
+	type = PrimitiveTypes::Primitive_Plane;
+}
+
+void GridRender::InnerRender() const
+{
+	glPolygonMode(GL_FRONT, GL_LINE);
+	glPolygonMode(GL_BACK, GL_LINE);
+
+	glBegin(GL_QUADS);
 	for (int s = 0; s < SIZE_OF_GRID - 1; s++)
 	{
 		for (int k = 0; k < SIZE_OF_GRID - 1; k++)
@@ -286,6 +301,4 @@ void Plane::InnerRender() const
 		}
 	}
 	glEnd();
-
-
 }

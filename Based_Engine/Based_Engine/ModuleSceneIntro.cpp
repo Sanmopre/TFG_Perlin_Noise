@@ -22,6 +22,10 @@ bool ModuleSceneIntro::Start()
 	plane = new Plane(0, 1, 0, 0);
 	plane->axis = true;
 
+	cube = new Cube(1, 1, 1);
+
+	grid = new GridRender(0, 1, 0, 0);
+
 	return ret;
 }
 
@@ -31,6 +35,8 @@ bool ModuleSceneIntro::CleanUp()
 	LOG("Unloading Intro scene");
 
 	delete plane;
+	delete grid;
+	delete cube;
 
 	return true;
 }
@@ -39,7 +45,9 @@ bool ModuleSceneIntro::CleanUp()
 update_status ModuleSceneIntro::Update(float dt)
 {
 
-	plane->Render();
+	//plane->Render();
+	//cube->Render();
+	grid->Render();
 
 	return UPDATE_CONTINUE;
 }

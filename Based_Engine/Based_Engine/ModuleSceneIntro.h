@@ -6,6 +6,8 @@
 
 struct PhysBody3D;
 class Plane;
+class Cube;
+class GridRender;
 
 class ModuleSceneIntro : public Module
 {
@@ -19,5 +21,8 @@ public:
 
 private:
 
+	
+	GridRender* grid;
 	Plane* plane;
+	Cube* cube;
 };
