@@ -17,7 +17,11 @@ public:
 	double ioffset = 0;
 	double koffset = 0;
 	double noiseSize = 0.01;
-	int multiplierFactor = 4;
+
+	double lowThreshhold = 20;
+	double highThreshhold = 1000;
+
+	int multiplierFactor = 200;
 
 
 private:

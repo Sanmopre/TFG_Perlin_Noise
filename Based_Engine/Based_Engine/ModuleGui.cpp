@@ -58,7 +58,13 @@ update_status ModuleGui::Update(float dt)
 
 	if (ImGui::BeginMenu("Perlin Noise Values")){
 
-		ImGui::InputDouble("Height", &App->scene_intro->grid->epic->ioffset, 1, 20 );
+		ImGui::InputDouble("Noise Size", &App->scene_intro->grid->epic->noiseSize, 0.001, 20 );
+
+		ImGui::InputDouble("Minimum Height", &App->scene_intro->grid->epic->lowThreshhold, 1, 20);
+
+		ImGui::InputDouble("Maximum Height ", &App->scene_intro->grid->epic->highThreshhold, 1, 20);
+
+		ImGui::InputInt("Height Multiplier", &App->scene_intro->grid->epic->multiplierFactor, 1, 20);
 		ImGui::EndMenu();
 	}
 
