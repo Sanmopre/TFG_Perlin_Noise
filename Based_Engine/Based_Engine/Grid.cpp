@@ -3,33 +3,60 @@
 
 Grid::Grid()
 {
-	SetGridRandomHeight();
+	SetGridRandomHeight(0);
 }
 
-void Grid::SetGridRandomHeight()
+void Grid::SetGridRandomHeight(unsigned int seed)
 {	
-	PerlinNoise* perlin = new PerlinNoise();
+	PerlinNoise* perlin = new PerlinNoise(seed);
 
-	for(int i = 0; i < SIZE_OF_GRID; i++)
+	double maxNoiseHeight = -100;
+	double minNoiseHeight = 100;
+
+	for(float i = 0; i < SIZE_OF_GRID; i++)
 	{
-		for(int k = 0; k < SIZE_OF_GRID; k++)
+		for(float k = 0; k < SIZE_OF_GRID; k++)
 		{
+
+			float amplitude = 1;
+			float frequency = 1;
+			float noiseHeight = 0;
+
+
+			for(int s = 0; s < octaves; s++)
+			{
+			koffset = k / noiseSize * frequency;
+			ioffset = i / noiseSize * frequency;
+
 			float n;
-			n = perlin->noise(koffset, ioffset, 0)* multiplierFactor;
+			n = perlin->noise(koffset, ioffset, 0) * 2 -1;
+	
+			noiseHeight += n * amplitude;  
+			amplitude *= persistance;
+			frequency *= lacunarity;
+			}
 
-			if (lowThreshhold > n)
-				n = lowThreshhold;
+			if(noiseHeight > maxNoiseHeight)
+			{
+				maxNoiseHeight = noiseHeight;
+			} else if (noiseHeight < minNoiseHeight)
+			{
+				minNoiseHeight = noiseHeight;
+			}
 
-			if (highThreshhold < n)
-				n = highThreshhold;
-			
-
-			grid[i][k] = n;
-
-			koffset += noiseSize;
+			grid[(int)i][(int)k] = noiseHeight * multiplierFactor;
 		}
-		koffset = 0;
-		ioffset += noiseSize;
 	}
 
+
+	//normalize matrix 
+	/*
+	for (int i = 0; i < SIZE_OF_GRID; i++)
+	{
+		for (int k = 0; k < SIZE_OF_GRID; k++) 
+		{
+			//grid[i][k] = minNoiseHeight + grid[i][k] * (maxNoiseHeight - minNoiseHeight);
+		}
+	}
+	*/
 }

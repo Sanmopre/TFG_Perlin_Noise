@@ -58,13 +58,20 @@ update_status ModuleGui::Update(float dt)
 
 	if (ImGui::BeginMenu("Perlin Noise Values")){
 
-		ImGui::InputDouble("Noise Size", &App->scene_intro->grid->epic->noiseSize, 0.001, 20 );
+		ImGui::InputDouble("Noise Size", &App->scene_intro->grid->epic->noiseSize, 10, 20 );
 
 		ImGui::InputDouble("Minimum Height", &App->scene_intro->grid->epic->lowThreshhold, 1, 20);
 
 		ImGui::InputDouble("Maximum Height ", &App->scene_intro->grid->epic->highThreshhold, 1, 20);
 
 		ImGui::InputInt("Height Multiplier", &App->scene_intro->grid->epic->multiplierFactor, 1, 20);
+
+		ImGui::InputInt("Octaves", &App->scene_intro->grid->epic->octaves, 1, 20);
+
+		ImGui::InputFloat("Percistance", &App->scene_intro->grid->epic->persistance, 0.1, 20);
+
+		ImGui::InputInt("Seed", &App->scene_intro->seed, 1, 20);
+
 		ImGui::EndMenu();
 	}
 

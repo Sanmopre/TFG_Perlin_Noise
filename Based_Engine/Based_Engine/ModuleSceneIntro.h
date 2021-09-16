@@ -20,6 +20,8 @@ public:
 	bool CleanUp();
 	GridRender* grid;
 
+	int seed = 0; 
+
 private:
 
 	Plane* plane;
