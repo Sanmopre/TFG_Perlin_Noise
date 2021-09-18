@@ -72,6 +72,8 @@ update_status ModuleGui::Update(float dt)
 
 		ImGui::InputInt("Seed", &App->scene_intro->seed, 1, 20);
 
+		ImGui::Checkbox("3D Perlin", &App->scene_intro->movementMode);
+
 		ImGui::EndMenu();
 	}
 

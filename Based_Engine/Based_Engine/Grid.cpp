@@ -29,7 +29,7 @@ void Grid::SetGridRandomHeight(unsigned int seed)
 			ioffset = i / noiseSize * frequency;
 
 			float n;
-			n = perlin->noise(koffset, ioffset, 0) * 2 -1;
+			n = perlin->noise(koffset, ioffset, time) * 2 -1;
 	
 			noiseHeight += n * amplitude;  
 			amplitude *= persistance;

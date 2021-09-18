@@ -28,7 +28,8 @@ public:
 	float lacunarity = 2;
 
 	unsigned int seed = 500;
-
+	double timeStep = 0.005;
+	double time = 0;
 
 private:
 

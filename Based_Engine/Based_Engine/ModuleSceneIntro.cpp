@@ -46,9 +46,12 @@ update_status ModuleSceneIntro::Update(float dt)
 {
 	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
 		grid->epic->SetGridRandomHeight(seed);
-
-	//plane->Render();
-	//cube->Render();
+	
+	if(movementMode)
+	{
+		grid->epic->SetGridRandomHeight(seed);
+		grid->epic->time += grid->epic->timeStep;
+	} 
 
 	grid->Render();
 

@@ -22,6 +22,8 @@ public:
 
 	int seed = 0; 
 
+	bool movementMode = false;
+
 private:
 
 	Plane* plane;
