@@ -70,6 +70,9 @@
     <ClCompile Include="PerlinNoise.cpp">
       <Filter>Engine\Tools</Filter>
     </ClCompile>
+    <ClCompile Include="ModuleShaderManager.cpp">
+      <Filter>Engine\Modules</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -146,6 +149,9 @@
     </ClInclude>
     <ClInclude Include="PerlinNoise.h">
       <Filter>Engine\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleShaderManager.h">
+      <Filter>Engine\Modules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

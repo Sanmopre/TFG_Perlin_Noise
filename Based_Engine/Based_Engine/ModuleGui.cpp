@@ -74,6 +74,8 @@ update_status ModuleGui::Update(float dt)
 
 		ImGui::Checkbox("3D Perlin", &App->scene_intro->movementMode);
 
+		ImGui::InputDouble("Time Step", &App->scene_intro->grid->epic->timeStep, 0.0005, 20);
+
 		ImGui::EndMenu();
 	}
 
